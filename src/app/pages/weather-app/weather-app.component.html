@@ -1,1 +1,6 @@
-<p>weather-app works!</p>
+<h3>Weather-app</h3>
+
+<section [class.dark]="isDark" (click)="toggleDark()" class="season-clock">
+    <div>{{date.getHours()}}:{{getMinites()}}</div>
+    <img src="../../../assets/imgs/{{season}}" alt="">
+</section>
