@@ -4,15 +4,19 @@
       <h1>{{title}}</h1>
 
       <nav class="main-nav">
-        <a routerLink="/">weather-app</a>
-        <a routerLink="/count-down-app">count-down-app</a>
+        <!-- <a routerLink="/">weather-app</a>
+        <a routerLink="/count-down-app">count-down-app</a> -->
+        <button (click)="changeRoute('weather-app')">weather-app</button>
+        <button (click)="changeRoute('count-down-app')">count-down-app</button>
       </nav>
 
     </section>
   </header>
 
   <main>
-    <router-outlet></router-outlet>
+    <app-weather-app *ngIf="this.route==='weather-app'"></app-weather-app>
+    <app-count-down-app *ngIf="this.route==='count-down-app'" [futureTime]="futureTime"></app-count-down-app>
+    <!-- <router-outlet></router-outlet> -->
   </main>
 
 </section>

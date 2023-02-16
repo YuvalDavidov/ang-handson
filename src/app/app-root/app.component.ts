@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ang-handson';
+  route = 'count-down-app'
+  futureTime: number = Date.now() + 1000 * 60
+
+  changeRoute(route: string) {
+    this.route = route
+
+  }
 }
