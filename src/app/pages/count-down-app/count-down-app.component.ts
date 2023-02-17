@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 @Component({
   selector: 'app-count-down-app',
   templateUrl: './count-down-app.component.html',
   styleUrls: ['./count-down-app.component.scss']
 })
-export class CountDownAppComponent implements OnInit {
+export class CountDownAppComponent implements OnInit, OnDestroy {
   now = Date.now()
   @Input() futureTime!: number
 
@@ -18,12 +18,10 @@ export class CountDownAppComponent implements OnInit {
     this.interval = setInterval(() => {
       this.getTimer()
       this.diff = this.diff - 1000
-    }, 100)
+    }, 1000)
   }
 
   getTimer() {
-    console.log(this.diff);
-
     if (Math.floor(this.diff / 1000) > 59000) this.timeToShow = '01:00'
     else if (this.diff < 10000) this.timeToShow = '00:0' + Math.floor(this.diff / 1000)
     else this.timeToShow = '00:' + Math.floor(this.diff / 1000)
@@ -31,6 +29,10 @@ export class CountDownAppComponent implements OnInit {
       clearInterval(this.interval)
       new Audio("../../../assets/audio/ding.mp3").play();
     }
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.interval)
   }
 
 }

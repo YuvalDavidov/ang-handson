@@ -8,6 +8,7 @@
         <a routerLink="/count-down-app">count-down-app</a> -->
         <button (click)="changeRoute('weather-app')">weather-app</button>
         <button (click)="changeRoute('count-down-app')">count-down-app</button>
+        <button (click)="changeRoute('wire-up')">wire-up</button>
       </nav>
 
     </section>
@@ -16,6 +17,7 @@
   <main>
     <app-weather-app *ngIf="this.route==='weather-app'"></app-weather-app>
     <app-count-down-app *ngIf="this.route==='count-down-app'" [futureTime]="futureTime"></app-count-down-app>
+    <app-wire-up *ngIf="this.route==='wire-up'"></app-wire-up>
     <!-- <router-outlet></router-outlet> -->
   </main>
 
