@@ -1,0 +1,18 @@
+<h3>who-watch</h3>
+<section class="watchers">
+
+    <ul>
+        <li *ngFor="let watcher of watchers; index as idx" (click)="changeRoute(idx)">
+            <h4> {{watcher.name}}</h4>
+            <img src="https://robohash.org/{{watcher.id}}" alt="">
+        </li>
+    </ul>
+    <div class="watcher" *ngIf="!path">
+        <ul>
+            <h4> {{watchers[watcherClicked].name}}</h4>
+            <li *ngFor="let movie of watchers[watcherClicked].movies">
+                {{movie}}
+            </li>
+        </ul>
+    </div>
+</section>

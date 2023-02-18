@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ang-handson';
-  route = 'wire-up'
+  route = 'who-watch'
   futureTime: number = Date.now() + 1000 * 60
 
   changeRoute(route: string) {
